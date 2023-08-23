@@ -23,16 +23,15 @@ const FeaturedCard = () => {
           Featured Content
         </h2>
         {isFeatured.map((myth) => (
-          <div className="flex">
+          <div className="flex" key={myth.id}>
             <div className="flex items-center justify-center w-20 h-20 rounded-lg">
               <>
-                <div key={myth.id} className="bg-white p-1 w-full">
+                <div className="bg-white p-1 w-full">
                   <Image
                     src={myth?.imageUrl}
                     alt="Featured Myth"
                     width={700}
                     height={800}
-                    className=""
                   />
                 </div>
               </>
