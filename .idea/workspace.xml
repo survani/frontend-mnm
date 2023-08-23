@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8ccbec57-ce8f-47ec-9c32-7437e9b7e295" name="Changes" comment="Back to normal...." />
+    <list default="true" id="8ccbec57-ce8f-47ec-9c32-7437e9b7e295" name="Changes" comment="Back to normal....">
+      <change afterPath="$PROJECT_DIR$/.idea/prettier.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/components/featured/featured-card.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/demo/rightSideBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/demo/rightSideBar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/create/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/create/page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/state/slices/createMythSlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/state/slices/createMythSlice.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -56,7 +63,7 @@
     "node.js.selected.package.standard": "",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "prettierjs.PrettierConfiguration.Package": "E:\\Projects\\mnm-frontend\\node_modules\\prettier",
+    "prettierjs.PrettierConfiguration.Package": "E:\\Projects\\frontend-mnm\\node_modules\\prettier",
     "settings.editor.selected.configurable": "settings.javascript.prettier",
     "ts.external.directory.path": "E:\\Projects\\frontend-mnm\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
@@ -112,7 +119,7 @@
       <workItem from="1692419214188" duration="5529000" />
       <workItem from="1692767891625" duration="1970000" />
       <workItem from="1692807398300" duration="1833000" />
-      <workItem from="1692810300927" duration="3834000" />
+      <workItem from="1692810300927" duration="7779000" />
     </task>
     <task id="LOCAL-00001" summary="Back to normal....">
       <option name="closed" value="true" />
