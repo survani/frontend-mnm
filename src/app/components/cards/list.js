@@ -86,7 +86,7 @@ const List = () => {
                   <button className="bg-[#192231] p-2 rounded-xl border-2 border-dashed">
                     {item.topic}
                   </button>
-                  <Link href={`/myths/${item.id}`}>
+                  <Link href={`/myths/${item.id}`} className="w-10">
                     <ChevronRightIcon />
                   </Link>
                 </div>
@@ -95,7 +95,9 @@ const List = () => {
           ))
         ) : (
           <div className="flex flex-col">
-            <p className="">Loading Myths...</p>
+            <p className="">Loading Myths... May take up to 3 min. </p>
+            <ListSkeleton />
+            <ListSkeleton />
             <ListSkeleton />
           </div>
         )}
