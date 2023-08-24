@@ -10,26 +10,24 @@ import {
 import { useStore } from "../../state/useStore";
 import ListSkeleton from "../../components/skeletons/list-skeleton";
 import ListUi from "../../components/cards/list-ui";
+import sortByFilter from "../../helpers/sortByFilter";
 
 const List = () => {
-  const [sortBy, setSortBy] = useState("default");
-  const [showSortOptions, setShowSortOptions] = useState(false);
-  const { myths, fetchMyths } = useStore();
+  const {
+    myths,
+    fetchMyths,
+    sortBy,
+    setSortBy,
+    showSortOptions,
+    toggleSortOptions,
+  } = useStore();
 
   const handleSortChange = (event) => {
     setSortBy(event.target.value);
-  };
-
-  const toggleSortOptions = () => {
-    setShowSortOptions(!showSortOptions);
+    sortByFilter(event.target.value, myths);
   };
 
   const sortedData = [...myths];
-  if (sortBy === "asc") {
-    sortedData.sort((a, b) => a.id - b.id);
-  } else if (sortBy === "desc") {
-    sortedData.sort((a, b) => b.id - a.id);
-  }
 
   useEffect(() => {
     fetchMyths();
@@ -38,19 +36,16 @@ const List = () => {
   return (
     <div className="flex h-screen">
       <div className="flex-1 overflow-y-auto p-10 mt-[64px]">
-        <div className="flex justify-between mb-4 text-xl">
-          <h2>All Myths</h2>
+        <div className="flex justify-between mb-4">
+          <h2 className="text-xl font-bold uppercase">All Myths</h2>
           <div className="flex items-center gap-2">
-            <h2>Sort By</h2>
+            <h2 className="">Sort By</h2>
             {showSortOptions && (
               <select
                 value={sortBy}
                 onChange={handleSortChange}
                 className="text-black rounded-md p-1"
               >
-                <option value="default" className="text-black">
-                  Default
-                </option>
                 <option value="asc" className="text-black">
                   Newest
                 </option>
@@ -69,7 +64,7 @@ const List = () => {
           </div>
         </div>
         {sortedData.length > 0 ? (
-          sortedData.map((item) => (
+          sortedData?.map((item) => (
             <div key={item.id}>{<ListUi item={item} />}</div>
           ))
         ) : (

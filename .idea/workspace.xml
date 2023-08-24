@@ -5,12 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8ccbec57-ce8f-47ec-9c32-7437e9b7e295" name="Changes" comment="Back to normal....">
-      <change afterPath="$PROJECT_DIR$/src/app/components/cards/list-ui.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/topic/[slug]/page.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/helpers/sortByFilter.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/components/cards/list.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/cards/list.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/demo/navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/demo/navbar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/myths/[slug]/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/myths/topic/page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/state/slices/createMythSlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/state/slices/createMythSlice.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/topic/[slug]/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/topic/[slug]/page.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,11 +70,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Projects\frontend-mnm\src\app\myths\[slug]" />
+      <recent name="E:\Projects\frontend-mnm\src\app\myths" />
       <recent name="E:\Projects\mnm-frontend\src\app\components" />
       <recent name="E:\Projects\mnm-frontend\public" />
       <recent name="E:\Projects\mnm-frontend\src" />
-      <recent name="E:\Projects\mnm-frontend" />
-      <recent name="E:\Projects\mnm-frontend\src\app" />
     </key>
   </component>
   <component name="RunManager">
@@ -119,7 +118,7 @@
       <workItem from="1692419214188" duration="5529000" />
       <workItem from="1692767891625" duration="1970000" />
       <workItem from="1692807398300" duration="1833000" />
-      <workItem from="1692810300927" duration="17806000" />
+      <workItem from="1692810300927" duration="22565000" />
     </task>
     <task id="LOCAL-00001" summary="Back to normal....">
       <option name="closed" value="true" />
