@@ -11,6 +11,7 @@ import { useStore } from "../../state/useStore";
 import ListSkeleton from "../../components/skeletons/list-skeleton";
 import ListUi from "../../components/cards/list-ui";
 import sortByFilter from "../../helpers/sortByFilter";
+import { useUser } from "@clerk/nextjs";
 
 const List = () => {
   const {
@@ -21,6 +22,8 @@ const List = () => {
     showSortOptions,
     toggleSortOptions,
   } = useStore();
+
+  const { isLoaded, isSignedIn, user } = useUser();
 
   const handleSortChange = (event) => {
     setSortBy(event.target.value);
@@ -33,11 +36,19 @@ const List = () => {
     fetchMyths();
   }, [fetchMyths]);
 
+  if (!isLoaded) {
+    return null;
+  }
+
   return (
     <div className="flex h-screen">
       <div className="flex-1 overflow-y-auto p-10 mt-[64px]">
         <div className="flex justify-between mb-4">
-          <h2 className="text-xl font-bold uppercase">All Myths</h2>
+          {isSignedIn ? (
+            <h2 className="text-xl font-bold uppercase">{`Hi, ${user.firstName}`}</h2>
+          ) : (
+            <h2 className="text-xl font-bold uppercase">Hi, Guest</h2>
+          )}
           <div className="flex items-center gap-2">
             <h2 className="">Sort By</h2>
             {showSortOptions && (

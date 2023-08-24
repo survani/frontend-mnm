@@ -51,11 +51,11 @@ const Navbar = () => {
             </Link>
           </div>
           <div
-            className={`w-80 lg:w-auto ${
-              isMenuOpen ? "block" : "hidden lg:block"
+            className={`flex items-center space-x-3 lg:space-x-5 ${
+              isMenuOpen ? "block" : "hidden lg:flex"
             }`}
           >
-            <ul className="flex space-x-4 lg:space-x-8">
+            <ul className="flex space-x-3 lg:space-x-5 items-center">
               <li>
                 <Link
                   href="/topic/health"
