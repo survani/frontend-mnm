@@ -37,17 +37,13 @@ const Myth = ({ params }) => {
       </section>
       <article className="flex flex-col gap-5 mt-8">
         <section className="flex justify-between gap-5">
-            <div className="text-justify text-lg w-fit bg-[#131a27] p-5">
-            <p className="font-extrabold text-xl uppercase mr-2">
-              Myth
-            </p>
-              {myth.title}
+          <div className="text-justify text-lg w-fit bg-[#131a27] p-5">
+            <p className="font-extrabold text-xl uppercase mr-2">Myth</p>
+            {myth.title}
           </div>
 
           <div className="text-justify text-lg w-fit bg-[#131a27] p-5">
-            <p className="font-extrabold text-xl uppercase mr-2">
-              Fact
-            </p>
+            <p className="font-extrabold text-xl uppercase mr-2">Fact</p>
             {myth.fact}
           </div>
         </section>
