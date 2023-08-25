@@ -31,7 +31,7 @@ const CreateMyths = () => {
 
   return (
     <section>
-      <h1 className="text-4xl text-center mt-24">Create a Myth</h1>
+      <h1 className="mt-24 text-4xl text-center">Create a Myth</h1>
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="flex flex-col items-center mt-10"
@@ -88,7 +88,7 @@ const CreateMyths = () => {
         <input
           type="checkbox"
           name="featured"
-          {...register("featured", { required: true })}
+          {...register("featured", { required: false })}
         />
 
         <textarea
@@ -98,9 +98,7 @@ const CreateMyths = () => {
           placeholder="Content"
         />
 
-        {/* Add other input fields here */}
-
-        <button className="bg-red-500 border-2 p-3 mt-5 rounded" type="submit">
+        <button className="p-3 mt-5 bg-red-500 border-2 rounded" type="submit">
           Submit
         </button>
         <input type="reset" value="Reset" />

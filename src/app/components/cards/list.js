@@ -1,10 +1,10 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import Link from "next/link";
+import { useEffect } from "react";
 import {
   AdjustmentsHorizontalIcon,
   ChevronRightIcon,
+  UsersIcon,
   XMarkIcon,
 } from "@heroicons/react/20/solid";
 import { useStore } from "../../state/useStore";
@@ -34,7 +34,7 @@ const List = () => {
 
   useEffect(() => {
     fetchMyths();
-  }, [fetchMyths]);
+  }, [fetchMyths, myths]);
 
   if (!isLoaded) {
     return null;
@@ -45,9 +45,15 @@ const List = () => {
       <div className="flex-1 overflow-y-auto p-10 mt-[64px]">
         <div className="flex justify-between mb-4">
           {isSignedIn ? (
-            <h2 className="text-xl font-bold uppercase">{`Hi, ${user.firstName}`}</h2>
+            <div className="flex gap-1">
+              <UsersIcon className="w-5 text-gray-500 " />
+              <h2 className="text-xl font-bold uppercase">{`Hi, ${user.firstName}`}</h2>
+            </div>
           ) : (
+            <div className="flex gap-1">
+              <UsersIcon className="w-5 text-gray-500 " />
             <h2 className="text-xl font-bold uppercase">Hi, Guest</h2>
+            </div>
           )}
           <div className="flex items-center gap-2">
             <h2 className="">Sort By</h2>
@@ -55,7 +61,7 @@ const List = () => {
               <select
                 value={sortBy}
                 onChange={handleSortChange}
-                className="text-black rounded-md p-1"
+                className="p-1 text-black rounded-md"
               >
                 <option value="asc" className="text-black">
                   Newest
