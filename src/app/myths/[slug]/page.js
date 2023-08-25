@@ -4,6 +4,7 @@ import { HashtagIcon, SparklesIcon } from "@heroicons/react/20/solid";
 import { useStore } from "../../state/useStore";
 import Image from "next/image";
 import { useEffect } from "react";
+import addLikes from "../../helpers/addLikes";
 
 const Myth = ({ params }) => {
   const { myth, fetchSingleMyth } = useStore();
@@ -32,6 +33,7 @@ const Myth = ({ params }) => {
             <div className="flex items-center gap-1">
               <SparklesIcon className="w-4 text-gray-400" />
               <h1 className="text-lg font-bold text-gray-400">{myth.topic}</h1>
+              <button onClick={() => ""}>LIKE</button>
             </div>
           </div>
           <section className="flex gap-5">
@@ -43,12 +45,12 @@ const Myth = ({ params }) => {
       </section>
       <article className="flex flex-col gap-5 mt-8">
         <section className="flex flex-col justify-between gap-5 lg:flex-row">
-          <div className="text-justify text-lg bg-[#131a27] p-5 w-full h-fit">
+          <div className="text-justify text-lg bg-[#131a27] p-5 w-full rounded-md">
             <p className="mr-2 text-xl font-extrabold uppercase">Myth</p>
             {myth.description}
           </div>
 
-          <div className="text-justify text-lg w-full h-fit bg-[#131a27] p-5">
+          <div className="text-justify text-lg w-full bg-[#131a27] p-5 rounded-md">
             <p className="mr-2 text-xl font-extrabold uppercase">Fact</p>
             {myth.fact}
           </div>

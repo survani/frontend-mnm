@@ -34,7 +34,7 @@ const List = () => {
 
   useEffect(() => {
     fetchMyths();
-  }, [fetchMyths, myths]);
+  }, [fetchMyths]);
 
   if (!isLoaded) {
     return null;
