@@ -6,7 +6,7 @@ import { useAuth } from "@clerk/nextjs";
 import deleteMyth from "../../helpers/deleteMyth";
 import {useState }  from "react";
 import editMyth  from "../../helpers/editMyth";
-import MythUpdateModal from "./../modals/forms/MythUpdateModal"
+import MythUpdateModal from "../modals/mythUpdateModal";
 
 const ListUi = ({ item }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
