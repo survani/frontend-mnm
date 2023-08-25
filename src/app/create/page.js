@@ -30,80 +30,96 @@ const CreateMyths = () => {
   };
 
   return (
-    <section>
-      <h1 className="mt-24 text-4xl text-center">Create a Myth</h1>
-      <form
-        onSubmit={handleSubmit(onSubmit)}
-        className="flex flex-col items-center mt-10"
-      >
-        <label>Title</label>
-        <input
-          type="text"
-          name="title"
-          {...register("title", { required: true })}
-          placeholder={"Title"}
-        />
+<section className="mt-28">
+  <h1 className="mb-8 text-4xl font-bold text-center text-white">Create a Myth</h1>
+  <form
+    onSubmit={handleSubmit(onSubmit)}
+    className="max-w-md p-8 mx-auto bg-white rounded-lg shadow-md"
+  >
+    <label className="text-gray-700">Title</label>
+    <input
+      type="text"
+      name="title"
+      {...register("title", { required: true })}
+      placeholder="Title"
+      className="w-full p-2 mt-1 border border-gray-300 rounded"
+    />
 
-        <label>Description</label>
-        <input
-          type="text"
-          name="description"
-          {...register("description", { required: true })}
-          placeholder={"Description"}
-        />
+    <label className="mt-4 text-gray-700">Description</label>
+    <input
+      type="text"
+      name="description"
+      {...register("description", { required: true })}
+      placeholder="Description"
+      className="w-full p-2 mt-1 border border-gray-300 rounded"
+    />
 
-        <label>Topic</label>
-        <input
-          type="text"
-          name="topic"
-          {...register("topic", { required: true })}
-          placeholder={"Topic"}
-        />
+    <label className="mt-4 text-gray-700">Topic</label>
+    <input
+      type="text"
+      name="topic"
+      {...register("topic", { required: true })}
+      placeholder="Topic"
+      className="w-full p-2 mt-1 border border-gray-300 rounded"
+    />
 
-        <label>Date</label>
-        <input
-          type="datetime-local"
-          name="content"
-          {...register("publishedDate", { required: true })}
-          placeholder={"Content"}
-          className="text-black"
-        />
+    <label className="mt-4 text-gray-700">Date</label>
+    <input
+      type="datetime-local"
+      name="content"
+      {...register("publishedDate", { required: true })}
+      className="w-full p-2 mt-1 border border-gray-300 rounded"
+    />
 
-        <label>Image URL</label>
-        <input
-          type="text"
-          name="imageUrl"
-          {...register("imageUrl", { required: true })}
-          placeholder={"Image URL"}
-        />
+    <label className="mt-4 text-gray-700">Image URL</label>
+    <input
+      type="text"
+      name="imageUrl"
+      {...register("imageUrl", { required: true })}
+      placeholder="Image URL"
+      className="w-full p-2 mt-1 border border-gray-300 rounded"
+    />
 
-        <label>Fact</label>
-        <input
-          type="text"
-          name="fact"
-          {...register("fact", { required: true })}
-          placeholder={"Fact"}
-        />
-        <label>Featured</label>
-        <input
-          type="checkbox"
-          name="featured"
-          {...register("featured", { required: false })}
-        />
+    <label className="mt-4 text-gray-700">Fact</label>
+    <input
+      type="text"
+      name="fact"
+      {...register("fact", { required: true })}
+      placeholder="Fact"
+      className="w-full p-2 mt-1 border border-gray-300 rounded"
+    />
 
-        <textarea
-          {...register("content")}
-          rows="5"
-          cols="50"
-          placeholder="Content"
-        />
+    <label className="flex items-center mt-4 text-gray-700">
+      <input
+        type="checkbox"
+        name="featured"
+        {...register("featured", { required: false })}
+        className="mr-2"
+      />
+      Featured
+    </label>
 
-        <button className="p-3 mt-5 bg-red-500 border-2 rounded" type="submit">
-          Submit
-        </button>
-        <input type="reset" value="Reset" />
-      </form>
-    </section>
+    <label className="mt-4 text-gray-700">Content</label>
+    <textarea
+      {...register("content")}
+      rows="5"
+      placeholder="Content"
+      className="w-full p-2 mt-1 border border-gray-300 rounded"
+    />
+
+    <div className="flex justify-between mt-6">
+      <button className="px-4 py-2 text-white bg-red-500 rounded hover:bg-red-600 focus:outline-none focus:ring">
+        Submit
+      </button>
+      <input
+        type="reset"
+        value="Reset"
+        className="px-4 py-2 border rounded hover:bg-gray-200 focus:outline-none focus:ring"
+      />
+    </div>
+  </form>
+</section>
+
   );
 };
 export default CreateMyths;

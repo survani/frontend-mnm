@@ -41,16 +41,16 @@ const Topics = ({ params }) => {
 
   return (
     <>
-      <section className="mt-32 px-10">
-        <div className="flex justify-between items-center mb-4">
-          <h1 className="uppercase text-3xl font-bold">{topic}</h1>
+      <section className="px-10 mt-32 text-white">
+        <div className="flex items-center justify-between mb-4">
+          <h1 className="text-3xl font-bold uppercase">{topic}</h1>
           <div className="flex items-center gap-2">
             <h2 className="mr-2">Sort By</h2>
             {showSortOptions && (
               <select
                 value={sortBy}
                 onChange={handleSortChange}
-                className="text-black rounded-md p-1"
+                className="p-1 text-black rounded-md"
               >
                 <option value="asc" className="text-black">
                   Newest
@@ -71,7 +71,7 @@ const Topics = ({ params }) => {
         </div>
         <hr />
       </section>
-      <section className="mt-5 px-10">
+      <section className="px-10 mt-5">
         {sortedData.length > 0 ? (
           sortedData?.map((item) => (
             <div key={item.id}>
@@ -79,7 +79,7 @@ const Topics = ({ params }) => {
             </div>
           ))
         ) : (
-          <div className="flex flex-col">
+          <div className="flex flex-col text-white">
             <p className="">Loading Myths...</p>
             <FeaturedCardSkeleton />
           </div>

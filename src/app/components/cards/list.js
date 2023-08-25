@@ -41,17 +41,17 @@ const List = () => {
   }
 
   return (
-    <div className="flex h-screen">
+    <div className="flex h-screen text-white">
       <div className="flex-1 overflow-y-auto p-10 mt-[64px]">
         <div className="flex justify-between mb-4">
           {isSignedIn ? (
             <div className="flex gap-1">
-              <UsersIcon className="w-5 text-gray-500 " />
+              <UsersIcon className="w-5 " />
               <h2 className="text-xl font-bold uppercase">{`Hi, ${user.firstName}`}</h2>
             </div>
           ) : (
             <div className="flex gap-1">
-              <UsersIcon className="w-5 text-gray-500 " />
+              <UsersIcon className="w-5" />
             <h2 className="text-xl font-bold uppercase">Hi, Guest</h2>
             </div>
           )}
