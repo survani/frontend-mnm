@@ -4,9 +4,9 @@ import Link from "next/link";
 import { ChevronRightIcon, PencilSquareIcon, TrashIcon } from "@heroicons/react/20/solid";
 import { useAuth } from "@clerk/nextjs";
 import deleteMyth from "../../helpers/deleteMyth";
-import MythUpdateModal from "../modals/forms/MythUpdateModal";
 import {useState }  from "react";
 import editMyth  from "../../helpers/editMyth";
+import MythUpdateModal from "./../modals/forms/MythUpdateModal"
 
 const ListUi = ({ item }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
