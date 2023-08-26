@@ -23,27 +23,23 @@ const FeaturedCard = () => {
         <h2 className="mb-4 text-xl font-semibold text-white">Featured Myth</h2>
         {isFeatured.length > 0 ? (
           isFeatured.map((myth) => (
-            <>
-              <div className="flex" key={myth.id}>
-                <div className="flex items-center justify-center w-20 h-20 rounded-lg">
-                  <>
-                    <div className="bg-white p-1 w-full">
-                      <Image
-                        src={myth?.imageUrl}
-                        alt="Featured Myth"
-                        width={700}
-                        height={800}
-                      />
-                    </div>
-                  </>
-                </div>
-                <div className="flex flex-col">
-                  <Link href={`/myths/${myth.id}`}>
-                    <p className="mt-3 ml-5 text-sm text-white">{myth.title}</p>
-                  </Link>
+            <div className="flex" key={myth.id}>
+              <div className="flex items-center justify-center w-20 h-20 rounded-lg">
+                <div className="w-full p-1 bg-white">
+                  <Image
+                    src={myth.imageUrl}
+                    alt="Featured Myth"
+                    width={700}
+                    height={800}
+                  />
                 </div>
               </div>
-            </>
+              <div className="flex flex-col">
+                <Link href={`/myths/${myth.id}`}>
+                  <p className="mt-3 ml-5 text-sm text-white">{myth.title}</p>
+                </Link>
+              </div>
+            </div>
           ))
         ) : (
           <div className="flex flex-col">

@@ -1,17 +1,34 @@
+/* 
+
+Todos:
+- [x] Reset likes on all myths after likes functionality is added 100% (backend and frontend).
+- [x] Implement the share functionality. (backend and frontend).
+- [x] Implement the share factor functionality. (frontend).
+- [x] Implement an updated date functionality. (backend and frontend).
+*/
+
+
 "use client";
 
 import { HashtagIcon, SparklesIcon } from "@heroicons/react/20/solid";
 import { useStore } from "../../state/useStore";
 import Image from "next/image";
-import { useEffect } from "react";
-import addLikes from "../../helpers/addLikes";
+import { useEffect, useState } from "react";
 
 const Myth = ({ params }) => {
-  const { myth, fetchSingleMyth } = useStore();
+  const { myth, fetchSingleMyth, addLike } = useStore();
+  const [isLiked, setIsLiked] = useState(false);
 
   useEffect(() => {
     fetchSingleMyth(params.slug);
   }, [fetchSingleMyth, params.slug]);
+
+  const handleLike = () => {
+    if (!isLiked) {
+      addLike(myth.id);
+      setIsLiked(true); // Mark the myth as liked
+    }
+  };
 
   return (
     <main className="container p-4 mx-auto mt-20 text-white">
@@ -33,7 +50,18 @@ const Myth = ({ params }) => {
             <div className="flex items-center gap-1">
               <SparklesIcon className="w-4 text-gray-400" />
               <h1 className="text-lg font-bold text-gray-400">{myth.topic}</h1>
-              <button onClick={() => ""}>LIKE</button>
+              <div className="hidden lg:flex">
+                <button
+                  onClick={handleLike}
+                  disabled={isLiked}
+                  className="w-20 p-0.2 border-2 border-dashed rounded ml-5 hover:bg-[#131a27]"
+                >
+                  {isLiked ? "Liked" : "Like"}
+                </button>
+                <button className="w-20 p-0.2 border-2 border-dashed rounded ml-2 hover:bg-[#131a27]">
+                  Share
+                </button>
+              </div>
             </div>
           </div>
           <section className="flex gap-5">
@@ -41,6 +69,18 @@ const Myth = ({ params }) => {
             <p>Shocked Factor: {myth.shockedFactor}</p>
             <p className="text-gray-500">{myth.publishedDate}</p>
           </section>
+          <section className="flex lg:hidden">
+                <button
+                  onClick={handleLike}
+                  disabled={isLiked}
+                  className="w-20 p-0.2 border-2 border-dashed rounded"
+                >
+                  {isLiked ? "Liked" : "Like"}
+                </button>
+                <button className="w-20 p-0.2 border-2 border-dashed rounded ml-2">
+                  Share
+                </button>
+              </section>
         </section>
       </section>
       <article className="flex flex-col gap-5 mt-8">
