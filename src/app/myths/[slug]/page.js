@@ -7,13 +7,13 @@ Todos:
 - [x] Implement an updated date functionality. (backend and frontend).
 */
 
-
 "use client";
 
 import { HashtagIcon, SparklesIcon } from "@heroicons/react/20/solid";
 import { useStore } from "../../state/useStore";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { TwitterShareButton, TwitterIcon } from "next-share";
 
 const Myth = ({ params }) => {
   const { myth, fetchSingleMyth, addLike } = useStore();
@@ -58,9 +58,12 @@ const Myth = ({ params }) => {
                 >
                   {isLiked ? "Liked" : "Like"}
                 </button>
-                <button className="w-20 p-0.2 border-2 border-dashed rounded ml-2 hover:bg-[#131a27]">
-                  Share
-                </button>
+                <TwitterShareButton
+                  url={"https://mythsnomore.com"}
+                  title={`Myth Debunked: ${myth.title}`}
+                >
+                  <TwitterIcon size={30} round className="w-20 p-1 ml-3 border-2 border-dashed rounded"/>
+                </TwitterShareButton>
               </div>
             </div>
           </div>
@@ -70,17 +73,20 @@ const Myth = ({ params }) => {
             <p className="text-gray-500">{myth.publishedDate}</p>
           </section>
           <section className="flex lg:hidden">
-                <button
-                  onClick={handleLike}
-                  disabled={isLiked}
-                  className="w-20 p-0.2 border-2 border-dashed rounded"
+            <button
+              onClick={handleLike}
+              disabled={isLiked}
+              className="w-20 p-0.2 border-2 border-dashed rounded"
+            >
+              {isLiked ? "Liked" : "Like"}
+            </button>
+            <TwitterShareButton
+                  url={"https://mythsnomore.com"}
+                  title={`Myth Debunked: ${myth.title}`}
                 >
-                  {isLiked ? "Liked" : "Like"}
-                </button>
-                <button className="w-20 p-0.2 border-2 border-dashed rounded ml-2">
-                  Share
-                </button>
-              </section>
+                  <TwitterIcon size={30} round className="w-20 p-1 ml-3 border-2 border-dashed rounded"/>
+                </TwitterShareButton>
+          </section>
         </section>
       </section>
       <article className="flex flex-col gap-5 mt-8">
