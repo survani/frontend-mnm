@@ -60,7 +60,7 @@ const Myth = ({ params }) => {
                   {isLiked ? "Liked" : "Like"}
                 </button>
                 <TwitterShareButton
-                  url={"https://mythsnomore.com"}
+                  url={`https://mythsnomore.com/myths/${myth.slug}`}
                   title={`Myth Debunked: ${myth.title}`}
                 >
                   <TwitterIcon size={30} round className="w-20 p-1 ml-3 border-2 border-dashed rounded"/>

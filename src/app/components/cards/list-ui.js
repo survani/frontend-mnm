@@ -22,9 +22,11 @@ const ListUi = ({ item }) => {
   return (
     <div key={item.id} className="py-6 border-b border-gray-300 hover:bg-[#131a27] rounded p-2 text-white">
       <div className="flex items-center">
+      <Link href={`/myths/${item.slug}`}>
         <div className="w-16 h-16 bg-[#192231] rounded-full flex items-center justify-center mr-3">
           <Image src={item.imageUrl} alt="Myth" className="object-cover rounded-full h-14 w-14" width={500} height={500} />
         </div>
+        </Link>
         <div className="flex-1">
           <Link href={`/myths/${item.slug}`}>
             <p className="text-xl">{item.title}</p>
@@ -33,9 +35,11 @@ const ListUi = ({ item }) => {
         </div>
         <div className="flex items-center gap-3">
         {userId === "user_2TpNVvbv4ndLxlukyXggZPGRJ99" && <> <TrashIcon className="w-5 text-gray-400 cursor-pointer" onClick={() => deleteMyth(item.id)}/> <PencilSquareIcon className="w-5 text-gray-400 cursor-pointer" onClick={() => setIsModalOpen(true)} /></> }
-          <button className="bg-[#192231] p-2 rounded-xl border-2 border-dashed border-[#6b7280]">
+        <Link href={`/topic/${item.topic}`}>
+          <button src={`topic/${item.topic}`} className="bg-[#192231] p-2 rounded-xl border-2 border-dashed border-[#6b7280]">
             {item.topic}
           </button>
+          </Link>
           <Link href={`/myths/${item.slug}`}>
             <ChevronRightIcon className="w-10 text-gray-400"/>
           </Link>
