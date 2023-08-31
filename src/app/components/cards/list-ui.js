@@ -36,7 +36,7 @@ const ListUi = ({ item }) => {
           <button className="bg-[#192231] p-2 rounded-xl border-2 border-dashed border-[#6b7280]">
             {item.topic}
           </button>
-          <Link href={`/myths/${item.id}`}>
+          <Link href={`/myths/${item.slug}`}>
             <ChevronRightIcon className="w-10 text-gray-400"/>
           </Link>
         </div>
