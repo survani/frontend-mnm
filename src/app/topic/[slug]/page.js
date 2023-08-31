@@ -1,6 +1,6 @@
 "use client";
 
-import ListUi from "../../components/cards/list-ui";
+import ListUI from "../../components/cards/myth-list/ListUI";
 import { useStore } from "../../state/useStore";
 import { useEffect } from "react";
 import FeaturedCardSkeleton from "../../components/skeletons/featured-card-skeleton";
@@ -29,7 +29,7 @@ const Topics = ({ params }) => {
   const topic = params.slug;
 
   const isTopic = myths.filter(
-    (item) => item.topic.toUpperCase() === topic.toUpperCase(),
+    (item) => item.topic.toUpperCase() === topic.toUpperCase()
   );
 
   const handleSortChange = (event) => {
@@ -52,6 +52,9 @@ const Topics = ({ params }) => {
                 onChange={handleSortChange}
                 className="p-1 text-black rounded-md"
               >
+                <option value="choose" className="text-black" disabled>
+                  Choose
+                </option>
                 <option value="asc" className="text-black">
                   Newest
                 </option>
@@ -75,7 +78,7 @@ const Topics = ({ params }) => {
         {sortedData.length > 0 ? (
           sortedData?.map((item) => (
             <div key={item.id}>
-              <ListUi item={item} />
+              <ListUI item={item} />
             </div>
           ))
         ) : (

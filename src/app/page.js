@@ -1,15 +1,9 @@
-
-
-import List from "../app/components/cards/list";
-
+import List from "./components/cards/myth-list/list";
 
 export default function Home() {
-
-
-	return (
-		<>
-		
-			<List/>
-		</>
-	);
+  return (
+    <>
+      <List />
+    </>
+  );
 }
