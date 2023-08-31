@@ -7,6 +7,7 @@ import deleteMyth from "../../helpers/deleteMyth";
 import {useState }  from "react";
 import editMyth  from "../../helpers/editMyth";
 import MythUpdateModal from "../modals/mythUpdateModal";
+import Image from "next/image";
 
 const ListUi = ({ item }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -21,8 +22,8 @@ const ListUi = ({ item }) => {
   return (
     <div key={item.id} className="py-6 border-b border-gray-300 hover:bg-[#131a27] rounded p-2 text-white">
       <div className="flex items-center">
-        <div className="w-8 h-8 bg-[#192231] rounded-full flex items-center justify-center mr-3">
-          <div className="w-4 h-4 bg-green-500 rounded-full"></div>
+        <div className="w-16 h-16 bg-[#192231] rounded-full flex items-center justify-center mr-3">
+          <Image src={item.imageUrl} alt="Myth" className="object-cover rounded-full h-14 w-14" width={500} height={500} />
         </div>
         <div className="flex-1">
           <Link href={`/myths/${item.slug}`}>
