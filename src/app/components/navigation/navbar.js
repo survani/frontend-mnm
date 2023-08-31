@@ -14,8 +14,8 @@ const Navbar = () => {
   };
 
   return (
-    <header className="bg-[#1f2937] border-b-2 border-gray-700 text-white fixed top-0 w-full h-16 flex items-center justify-between  shadow">
-      <div className="">
+    <>
+      <header className="bg-[#1f2937] border-b-2 border-gray-700 text-white fixed top-0 w-full h-16 flex items-center justify-between  shadow">
         <div className="flex items-center justify-between gap-5">
           <div className="flex items-center">
             <div
@@ -55,7 +55,7 @@ const Navbar = () => {
               isMenuOpen ? "block" : "hidden lg:flex"
             }`}
           >
-            <ul className="flex space-x-3 lg:space-x-5 items-center">
+            <ul className="flex items-center space-x-3 lg:space-x-5">
               <li>
                 <Link
                   href="/topic/health"
@@ -110,8 +110,11 @@ const Navbar = () => {
             </ul>
           </div>
         </div>
+      </header>
+      <div className="fixed bottom-0 w-full py-2 text-center text-white font-bold bg-[#131a27]">
+        MythsNoMore is under development. #BuildInPublic
       </div>
-    </header>
+    </>
   );
 };
 

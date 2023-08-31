@@ -16,7 +16,7 @@ import { useEffect, useState } from "react";
 import { TwitterShareButton, TwitterIcon } from "next-share";
 
 const Myth = ({ params }) => {
-  console.log(params.slug)
+  console.log(params.slug);
   const { myth, fetchSingleMyth, addLike } = useStore();
   const [isLiked, setIsLiked] = useState(false);
 
@@ -60,10 +60,14 @@ const Myth = ({ params }) => {
                   {isLiked ? "Liked" : "Like"}
                 </button>
                 <TwitterShareButton
-                  url={"https://mythsnomore.com"}
+                  url={`https://mythsnomore.com/myth/${myth.slug}`}
                   title={`Myth Debunked: ${myth.title}`}
                 >
-                  <TwitterIcon size={30} round className="w-20 p-1 ml-3 border-2 border-dashed rounded"/>
+                  <TwitterIcon
+                    size={30}
+                    round
+                    className="w-20 p-1 ml-3 border-2 border-dashed rounded"
+                  />
                 </TwitterShareButton>
               </div>
             </div>
@@ -82,11 +86,15 @@ const Myth = ({ params }) => {
               {isLiked ? "Liked" : "Like"}
             </button>
             <TwitterShareButton
-                  url={"https://mythsnomore.com"}
-                  title={`Myth Debunked: ${myth.title}`}
-                >
-                  <TwitterIcon size={30} round className="w-20 p-1 ml-3 border-2 border-dashed rounded"/>
-                </TwitterShareButton>
+              url={"https://mythsnomore.com"}
+              title={`Myth Debunked: ${myth.title}`}
+            >
+              <TwitterIcon
+                size={30}
+                round
+                className="w-20 p-1 ml-3 border-2 border-dashed rounded"
+              />
+            </TwitterShareButton>
           </section>
         </section>
       </section>

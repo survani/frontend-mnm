@@ -1,7 +1,7 @@
 export const createMythSlice = (set) => ({
   myths: [],
   featured: false,
-  sortBy: "asc", // Add sortBy state
+  sortBy: "choose", // Add sortBy state
   showSortOptions: false, // Add showSortOptions state
   fetchMyths: async () => {
     const res = await fetch("https://mnm-backend.onrender.com/myths");

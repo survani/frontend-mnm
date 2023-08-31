@@ -7,11 +7,11 @@ import {
   UsersIcon,
   XMarkIcon,
 } from "@heroicons/react/20/solid";
-import { useStore } from "../../state/useStore";
-import ListSkeleton from "../../components/skeletons/list-skeleton";
-import ListUi from "../../components/cards/list-ui";
-import sortByFilter from "../../helpers/sortByFilter";
+import { useStore } from "../../../state/useStore";
+import ListSkeleton from "../../skeletons/list-skeleton";
+import sortByFilter from "../../../helpers/sortByFilter";
 import { useUser } from "@clerk/nextjs";
+import ListUI from "./ListUI";
 
 const List = () => {
   const {
@@ -52,7 +52,7 @@ const List = () => {
           ) : (
             <div className="flex gap-1">
               <UsersIcon className="w-5" />
-            <h2 className="text-xl font-bold uppercase">Hi, Guest</h2>
+              <h2 className="text-xl font-bold uppercase">Hi, Guest</h2>
             </div>
           )}
           <div className="flex items-center gap-2">
@@ -63,6 +63,9 @@ const List = () => {
                 onChange={handleSortChange}
                 className="p-1 text-black rounded-md"
               >
+                <option value="choose" className="text-black" disabled>
+                  Choose
+                </option>
                 <option value="asc" className="text-black">
                   Newest
                 </option>
@@ -82,7 +85,8 @@ const List = () => {
         </div>
         {sortedData.length > 0 ? (
           sortedData?.map((item) => (
-            <div key={item.id}>{<ListUi item={item} />}</div>
+            <div key={item.id}>{<ListUI item={item} />}</div>
+            // <div key={item.id}>{<ListUI item={item} />}</div>
           ))
         ) : (
           <div className="flex flex-col">
