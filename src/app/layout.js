@@ -3,7 +3,14 @@ import './globals.css'
 import RightSidebar from "../app/components/demo/rightSideBar";
 import { ClerkProvider } from "@clerk/nextjs";
 
+export const metadata = {
+	title: 'MythsNoMore - Debunking Myths',
+	description: 'Debunking Myths Platform: Busting Myths, One Myth at a Time',
+  }
+  
+  
 export default function RootLayout({ children }) {
+
 	return (
 		<ClerkProvider>
 			<html lang='en'>

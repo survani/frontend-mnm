@@ -15,7 +15,6 @@ const FeaturedCard = () => {
 
   const isFeatured = myths.filter((myth) => myth.featured === true);
 
-  console.log("featured", isFeatured);
 
   return (
     <>

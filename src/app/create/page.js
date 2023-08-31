@@ -20,7 +20,6 @@ const CreateMyths = () => {
       if (response.ok) {
         const responseData = await response.json();
         router.push(`/`);
-        console.log("Response:", responseData);
       } else {
         console.error("Request failed");
       }
@@ -42,6 +41,14 @@ const CreateMyths = () => {
       name="title"
       {...register("title", { required: true })}
       placeholder="Title"
+      className="w-full p-2 mt-1 border border-gray-300 rounded"
+    />
+    <label className="mt-4 text-gray-700">Slug</label>
+    <input
+      type="text"
+      name="slug"
+      {...register("slug", { required: true })}
+      placeholder="Slug"
       className="w-full p-2 mt-1 border border-gray-300 rounded"
     />
 

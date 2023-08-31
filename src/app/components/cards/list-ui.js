@@ -25,7 +25,7 @@ const ListUi = ({ item }) => {
           <div className="w-4 h-4 bg-green-500 rounded-full"></div>
         </div>
         <div className="flex-1">
-          <Link href={`/myths/${item.id}`}>
+          <Link href={`/myths/${item.slug}`}>
             <p className="text-xl">{item.title}</p>
           </Link>
           <p className="mt-1 text-sm text-gray-500">{item.description}</p>

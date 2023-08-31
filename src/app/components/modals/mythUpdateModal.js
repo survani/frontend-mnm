@@ -1,7 +1,18 @@
+/*
+
+Todo: List of things to do
+- [ ] add form to a different component. 
+- [ ] add notification for success and error
+
+*/
+
 import { useForm } from "react-hook-form";
+import {slugify} from "../../helpers/slugify";
 
 const MythUpdateModal = ({ item, onClose, onSubmit }) => {
   const { register, handleSubmit } = useForm();
+
+  const slug = slugify(item.title);
 
   return (
     <div className="fixed inset-0 flex items-center justify-center text-black bg-black bg-opacity-40">
@@ -18,6 +29,13 @@ const MythUpdateModal = ({ item, onClose, onSubmit }) => {
           <input
             {...register("title")}
             defaultValue={item.title}
+            className="w-full px-4 py-2 border rounded focus:outline-none focus:border-blue-500"
+          />
+
+          <label className="block font-semibold text-black">Slug</label>
+          <input
+            {...register("slug")}
+            defaultValue={slug}
             className="w-full px-4 py-2 border rounded focus:outline-none focus:border-blue-500"
           />
 
