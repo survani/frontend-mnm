@@ -25,6 +25,8 @@ const List = () => {
 
   const { isLoaded, isSignedIn, user } = useUser();
 
+  console.log("USer: ", user);
+
   const handleSortChange = (event) => {
     setSortBy(event.target.value);
     sortByFilter(event.target.value, myths);
@@ -86,7 +88,6 @@ const List = () => {
         {sortedData.length > 0 ? (
           sortedData?.map((item) => (
             <div key={item.id}>{<ListUI item={item} />}</div>
-            // <div key={item.id}>{<ListUI item={item} />}</div>
           ))
         ) : (
           <div className="flex flex-col">
