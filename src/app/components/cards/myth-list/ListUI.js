@@ -47,7 +47,7 @@ const ListUI = ({ item }) => {
           <p className="mt-1 text-sm text-gray-500">{item.description}</p>
         </div>
         <div className="flex items-center gap-3">
-          {userId === "user_2TpNVvbv4ndLxlukyXggZPGRJ99" && (
+          {userId === "user_2UmJgQnSbSujs8U00cumPVB6Hcq" && (
             <>
               <TrashIcon
                 className="w-5 text-gray-400 cursor-pointer"
