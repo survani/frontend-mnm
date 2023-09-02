@@ -25,8 +25,6 @@ const List = () => {
 
   const { isLoaded, isSignedIn, user } = useUser();
 
-  console.log("USer: ", user);
-
   const handleSortChange = (event) => {
     setSortBy(event.target.value);
     sortByFilter(event.target.value, myths);
