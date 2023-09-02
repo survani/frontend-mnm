@@ -2,8 +2,7 @@
 
 Todos:
 - [x] Reset likes on all myths after likes functionality is added 100% (backend and frontend).
-- [x] Implement the share functionality. (backend and frontend).
-- [x] Implement the share factor functionality. (frontend).
+- [x] Implement the shock factor functionality. (frontend).
 - [x] Implement an updated date functionality. (backend and frontend).
 */
 
@@ -12,11 +11,10 @@ Todos:
 import { HashtagIcon, SparklesIcon } from "@heroicons/react/20/solid";
 import { useStore } from "../../state/useStore";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { TwitterShareButton, TwitterIcon } from "next-share";
 
 const Myth = ({ params }) => {
-  console.log(params.slug);
   const { myth, fetchSingleMyth, addLike } = useStore();
   const [isLiked, setIsLiked] = useState(false);
 
@@ -41,6 +39,7 @@ const Myth = ({ params }) => {
             height={500}
             alt="Myth"
             className="object-cover rounded h-96"
+            priority={true}
           />
         </section>
       </section>
@@ -86,7 +85,7 @@ const Myth = ({ params }) => {
               {isLiked ? "Liked" : "Like"}
             </button>
             <TwitterShareButton
-              url={"https://mythsnomore.com"}
+              url={`https://mythsnomore.com/myth/${myth.slug}`}
               title={`Myth Debunked: ${myth.title}`}
             >
               <TwitterIcon
