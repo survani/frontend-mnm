@@ -24,28 +24,28 @@ const ListUI = ({ item }) => {
   const { userId } = useAuth();
 
   return (
-    <div
+    <section
       key={item.id}
       className="py-6 border-b border-gray-300 hover:bg-[#131a27] rounded p-2 text-white"
     >
-      <div className="flex items-center">
+      <section className="flex items-end flex-col lg:flex-row lg:items-center">
         <Link href={`/myth/${item.slug}`}>
-          <div className="w-16 h-16 bg-[#192231] rounded-full flex items-center justify-center mr-3">
+          <div className="lg:w-16 lg:h-16 bg-[#192231] rounded-full flex items-center justify-center mr-3 w-full">
             <Image
               src={item.imageUrl}
               alt="Myth"
-              className="object-cover rounded-full h-14 w-14"
+              className="object-cover rounded lg:rounded-full lg:h-14 lg:w-14 w-full"
               width={500}
               height={500}
             />
           </div>
         </Link>
-        <div className="flex-1">
+        <section className="flex-1">
           <Link href={`/myth/${item.slug}`}>
             <p className="text-xl">{item.title}</p>
           </Link>
           <p className="mt-1 text-sm text-gray-500">{item.description}</p>
-        </div>
+        </section>
         <div className="flex items-center gap-3">
           {userId === "user_2UmJgQnSbSujs8U00cumPVB6Hcq" && (
             <>
@@ -71,7 +71,7 @@ const ListUI = ({ item }) => {
             <ChevronRightIcon className="w-10 text-gray-400" />
           </Link>
         </div>
-      </div>
+      </section>
 
       {isModalOpen && (
         <MythUpdateModal
@@ -80,7 +80,7 @@ const ListUI = ({ item }) => {
           onSubmit={handleUpdateSubmit}
         />
       )}
-    </div>
+    </section>
   );
 };
 export default ListUI;
