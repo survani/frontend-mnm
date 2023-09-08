@@ -1,9 +1,11 @@
 import List from "./components/cards/myth-list/List";
 
-export default function Home() {
+const Home = () => {
   return (
     <>
       <List />
     </>
   );
 }
+
+export default Home;

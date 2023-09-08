@@ -31,12 +31,15 @@
     "react-hook-form": "^7.45.4",
     "react-icons": "^4.10.1",
     "react-quill": "^2.0.0",
+    "react-slick": "^0.29.0",
     "sanitize-html": "^2.11.0",
+    "slick-carousel": "^1.8.1",
     "tw-elements": "^1.0.0-beta3",
     "zustand": "^4.4.1"
   },
   "devDependencies": {
     "@types/react": "18.2.20",
+    "@types/react-slick": "^0.23.10",
     "autoprefixer": "^10.4.14",
     "postcss": "^8.4.27",
     "tailwindcss": "^3.3.3",

@@ -38,7 +38,7 @@ const Navbar = () => {
 
   return (
     <>
-      <header className="bg-[#1f2937] border-b-2 border-gray-700 text-white fixed top-0 w-full h-16 flex items-center justify-between  shadow">
+      <nav className="container flex items-center justify-between w-full h-[3.5rem] mx-auto">
         <div className="flex items-center justify-between gap-5">
           <div className="flex items-center">
             <div
@@ -57,7 +57,7 @@ const Navbar = () => {
                   <Image
                     src={Logo} // Replace with your logo image URL
                     alt="Logo"
-                    className="hidden h-10 ml-3 lg:block w-50 lg:w-20 lg:ml-10"
+                    className="hidden h-10 lg:block w-50 lg:w-20"
                     width={400}
                     height={400}
                   />
@@ -65,7 +65,7 @@ const Navbar = () => {
                   <Image
                     src={Logo} // Replace with your logo image URL
                     alt="Logo"
-                    className="h-10 ml-3 w-50 lg:w-20 lg:ml-10"
+                    className="h-10 w-50 lg:w-20"
                     width={400}
                     height={400}
                   />
@@ -80,34 +80,27 @@ const Navbar = () => {
           >
             <ul className="flex items-center space-x-3 lg:space-x-5">
               <li>
-                <Link
-                  href="/"
-                  className="text-gray-300 hover:text-white cursor-pointer"
-                >
+                <Link href="/" className="cursor-pointer">
                   Home
                 </Link>
               </li>
-              <li
-                className="relative text-gray-300 hover:text-white cursor-pointer"
-                onClick={toggleDropdown}
-              >
+              <li className="relative cursor-pointer " onClick={toggleDropdown}>
                 {/* Toggle dropdown menu on click */}
                 Topics
                 {/* Dropdown menu */}
                 {isDropdownOpen && (
-                  <ul className="absolute left-0 mt-2 space-y-2 w-[200px] h-fit bg-gray-800 text-white border border-gray-300 rounded-lg z-10 p-5">
+                  <ul className="absolute left-0 mt-2 space-y-2 w-[200px] h-fit border bg-white rounded-lg z-10 p-5">
                     {/* Dropdown menu items */}
                     {uniqueArray.map((myth) => (
                       <React.Fragment key={myth.id}>
-                        <li
-                          className="py-0.5 hover:bg-gray-900"
-                          onClick={toggleDropdown}
-                        >
-                          <Link href={`/topic/${myth.topic.toLowerCase()}`}>
+                        <Link href={`/topic/${myth.topic.toLowerCase()}`}>
+                          <li
+                            className="py-0.5 hover:bg-gray-100 hover:rounded p-2.5 mb-1"
+                            onClick={toggleDropdown}
+                          >
                             {myth.topic}
-                            <hr />
-                          </Link>
-                        </li>
+                          </li>
+                        </Link>
                       </React.Fragment>
                     ))}
                     {/* Add more dropdown items as needed */}
@@ -117,8 +110,8 @@ const Navbar = () => {
             </ul>
           </div>
         </div>
-      </header>
-      <div className="fixed bottom-0 w-full py-2 text-center text-white font-bold bg-[#131a27]">
+      </nav>
+      <div className="w-full py-2 font-bold text-center bg-gray-200 ">
         MythsNoMore is under development. #BuildInPublic
       </div>
     </>

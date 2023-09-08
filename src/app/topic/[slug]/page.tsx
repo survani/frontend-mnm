@@ -2,7 +2,7 @@
 
 import ListUI from "../../components/cards/myth-list/ListUI";
 import { useStore } from "../../state/useStore";
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import FeaturedCardSkeleton from "../../components/skeletons/featured-card-skeleton";
 import { useSearchParams } from "next/navigation";
 import sortByFilter from "../../helpers/sortByFilter";
@@ -10,9 +10,9 @@ import {
   AdjustmentsHorizontalIcon,
   XMarkIcon,
 } from "@heroicons/react/20/solid";
+import myth from "../../types/types";
 
 const Topics = ({ params }) => {
-  const searchParams = useSearchParams();
   const {
     myths,
     fetchMyths,
@@ -29,10 +29,10 @@ const Topics = ({ params }) => {
   const topic = params.slug;
 
   const isTopic = myths.filter(
-    (item) => item.topic.toUpperCase() === topic.toUpperCase()
+    (myth: myth) => myth.topic.toUpperCase() === topic.toUpperCase()
   );
 
-  const handleSortChange = (event) => {
+  const handleSortChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setSortBy(event.target.value);
     sortByFilter(event.target.value, myths);
   };
@@ -40,11 +40,11 @@ const Topics = ({ params }) => {
   const sortedData = [...isTopic];
 
   return (
-    <>
-      <section className="px-10 mt-32 text-white">
-        <div className="flex items-center justify-between mb-4">
+    <section className="container mx-auto">
+      <section className="px-10 lg:px-0 mt-14">
+        <section className="flex items-center justify-between mb-4">
           <h1 className="text-3xl font-bold uppercase">{topic}</h1>
-          <div className="flex items-center gap-2">
+          <section className="flex items-center gap-2">
             <h2 className="mr-2">Sort By</h2>
             {showSortOptions && (
               <select
@@ -70,16 +70,16 @@ const Topics = ({ params }) => {
                 <XMarkIcon className="w-6" />
               )}
             </button>
-          </div>
-        </div>
+          </section>
+        </section>
         <hr />
       </section>
-      <section className="px-10 mt-5">
+      <section className="grid grid-cols-1 mt-8 lg:grid-cols-1 xl:grid-cols-4 place-items-center lg:place-items-start">
         {sortedData.length > 0 ? (
           sortedData?.map((item) => (
-            <div key={item.id}>
-              <ListUI item={item} />
-            </div>
+            <React.Fragment key={item.id}>
+              <ListUI myth={item} />
+            </React.Fragment>
           ))
         ) : (
           <div className="flex flex-col text-white">
@@ -88,7 +88,7 @@ const Topics = ({ params }) => {
           </div>
         )}
       </section>
-    </>
+    </section>
   );
 };
 

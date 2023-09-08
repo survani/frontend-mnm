@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
 
 const CreateMythForm = () => {
-  const { register, handleSubmit, errors } = useForm();
+  const { register, handleSubmit } = useForm();
 
   const router = useRouter();
   const onSubmit = async (data) => {
@@ -31,7 +31,7 @@ const CreateMythForm = () => {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="max-w-md p-8 mx-auto bg-white rounded-lg shadow-md"
+      className="max-w-md p-8 mx-auto bg-gray-100 rounded-lg shadow-md"
     >
       <label className="text-gray-700">Title</label>
       <input
@@ -107,7 +107,7 @@ const CreateMythForm = () => {
       <label className="mt-4 text-gray-700">Content</label>
       <textarea
         {...register("content")}
-        rows="5"
+        rows={5}
         placeholder="Content"
         className="w-full p-2 mt-1 border border-gray-300 rounded"
       />

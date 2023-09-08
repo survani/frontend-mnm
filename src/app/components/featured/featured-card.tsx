@@ -4,17 +4,17 @@ import { useStore } from "../../state/useStore";
 import { useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import FeaturedCardSkeleton from "../../components/skeletons/featured-card-skeleton";
+import FeaturedCardSkeleton from "../skeletons/featured-card-skeleton";
+import myth from "../../types/types";
 
 const FeaturedCard = () => {
-  const { myths, fetchMyths, featured } = useStore();
+  const { myths, fetchMyths } = useStore();
 
   useEffect(() => {
     fetchMyths();
   }, [fetchMyths]);
 
-  const isFeatured = myths.filter((myth) => myth.featured === true);
-
+  const isFeatured = myths.filter((myth: myth) => myth.featured === true);
 
   return (
     <>

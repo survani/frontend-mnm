@@ -11,7 +11,7 @@ Todos:
 import { HashtagIcon, SparklesIcon } from "@heroicons/react/20/solid";
 import { useStore } from "../../state/useStore";
 import Image from "next/image";
-import { Suspense, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { TwitterShareButton, TwitterIcon } from "next-share";
 
 const Myth = ({ params }) => {
@@ -30,9 +30,9 @@ const Myth = ({ params }) => {
   };
 
   return (
-    <main className="container p-4 mx-auto mt-20 text-white">
-      <section className="flex flex-col items-center">
-        <section className="bg-[#131a27] w-fit p-2 prounded">
+    <main className="container p-4 mx-auto mt-10">
+      <section className="flex flex-col items-center bg-gray-200 rounded">
+        <section className="p-2 rounded w-fit">
           <Image
             src={myth.imageUrl}
             width={1500}
@@ -48,13 +48,13 @@ const Myth = ({ params }) => {
           <div className="flex items-baseline content-center gap-3">
             <p className="flex text-2xl font-bold ">{myth.title}</p>
             <div className="flex items-center gap-1">
-              <SparklesIcon className="w-4 text-gray-400" />
-              <h1 className="text-lg font-bold text-gray-400">{myth.topic}</h1>
+              <SparklesIcon className="w-4 text-gray-500" />
+              <h1 className="text-lg font-bold text-gray-500">{myth.topic}</h1>
               <div className="hidden lg:flex">
                 <button
                   onClick={handleLike}
                   disabled={isLiked}
-                  className="w-20 p-0.2 border-2 border-dashed rounded ml-5 hover:bg-[#131a27]"
+                  className="w-20 p-0.2 border-2 border-dashed rounded ml-5 hover:bg-gray-100 font-medium"
                 >
                   {isLiked ? "Liked" : "Like"}
                 </button>
@@ -65,13 +65,13 @@ const Myth = ({ params }) => {
                   <TwitterIcon
                     size={30}
                     round
-                    className="w-20 p-1 ml-3 border-2 border-dashed rounded"
+                    className="w-20 p-1 ml-3 border-2 border-dashed rounded hover:bg-gray-100"
                   />
                 </TwitterShareButton>
               </div>
             </div>
           </div>
-          <section className="flex gap-5">
+          <section className="flex gap-5 font-medium text-gray-500">
             <p>Likes: {myth.likes}</p>
             <p>Shocked Factor: {myth.shockedFactor}</p>
             <p className="text-gray-500">{myth.publishedDate}</p>
@@ -99,18 +99,18 @@ const Myth = ({ params }) => {
       </section>
       <article className="flex flex-col gap-5 mt-8">
         <section className="flex flex-col justify-between gap-5 lg:flex-row">
-          <div className="text-justify text-lg bg-[#131a27] p-5 w-full rounded-md">
+          <div className="w-full p-5 text-lg text-justify bg-gray-100 border-2 border-dashed rounded-md">
             <p className="mr-2 text-xl font-extrabold uppercase">Myth</p>
             {myth.description}
           </div>
 
-          <div className="text-justify text-lg w-full bg-[#131a27] p-5 rounded-md">
+          <div className="w-full p-5 text-lg text-justify bg-gray-100 border-2 border-dashed rounded-md">
             <p className="mr-2 text-xl font-extrabold uppercase">Fact</p>
             {myth.fact}
           </div>
         </section>
-        <section>
-          <div className="flex gap-1">
+        <section className="w-full p-5 text-lg text-justify bg-gray-100 border-2 border-dashed rounded-md">
+          <div className="flex gap-1 ">
             <HashtagIcon className="w-5" />
             <h3 className="my-5 text-xl font-extrabold">Explanation</h3>
           </div>
