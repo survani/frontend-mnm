@@ -2,6 +2,13 @@ import Navbar from "./components/navigation/navbar";
 import "./globals.css";
 import RightSidebar from "./components/sidebars/rightSideBar";
 import { ClerkProvider } from "@clerk/nextjs";
+import { Lato } from "next/font/google";
+
+const lato = Lato({
+  weight: ["100", "300", "400", "700", "900"],
+  subsets: ["latin"],
+  display: "swap",
+});
 
 export const metadata = {
   title: "MythsNoMore - Debunking Myths",
@@ -11,15 +18,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <ClerkProvider>
-      <html lang="en">
-        <body className="font-sans flex bg-[#1f2937]">
+      <html lang="en" className={lato.className}>
+        <body className="text-black">
           <Navbar />
-          <div className="flex-grow">
-            <div className="flex flex-col h-screen appBg">
-              <div className="flex-grow">{children}</div>
-            </div>
-          </div>
-          <RightSidebar />
+          {children}
         </body>
       </html>
     </ClerkProvider>

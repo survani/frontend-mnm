@@ -7,15 +7,15 @@ Todo: List of things to do
 */
 
 import { useForm } from "react-hook-form";
-import {slugify} from "../../helpers/slugify";
+import { slugify } from "../../helpers/slugify";
 
-const MythUpdateModal = ({ item, onClose, onSubmit }) => {
+const MythUpdateModal = ({ myth, onClose, onSubmit }) => {
   const { register, handleSubmit } = useForm();
 
-  const slug = slugify(item.title);
+  const slug = slugify(myth.title);
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center text-black bg-black bg-opacity-40">
+    <div className="fixed inset-0 z-10 flex items-center justify-center text-black bg-black bg-opacity-40">
       <div className="w-1/2 p-6 bg-white border border-gray-300 rounded-lg">
         <span
           className="absolute text-xl font-bold text-white cursor-pointer top-10 right-10"
@@ -28,7 +28,7 @@ const MythUpdateModal = ({ item, onClose, onSubmit }) => {
           <label className="block font-semibold text-black">Title</label>
           <input
             {...register("title")}
-            defaultValue={item.title}
+            defaultValue={myth.title}
             className="w-full px-4 py-2 border rounded focus:outline-none focus:border-blue-500"
           />
 
@@ -42,28 +42,28 @@ const MythUpdateModal = ({ item, onClose, onSubmit }) => {
           <label className="block font-semibold text-black">Description</label>
           <input
             {...register("description")}
-            defaultValue={item.description}
+            defaultValue={myth.description}
             className="w-full px-4 py-2 border rounded focus:outline-none focus:border-blue-500"
           />
 
           <label className="block font-semibold text-black">Topic</label>
           <input
             {...register("topic")}
-            defaultValue={item.topic}
+            defaultValue={myth.topic}
             className="w-full px-4 py-2 border rounded focus:outline-none focus:border-blue-500"
           />
 
           <label className="block font-semibold text-black">Image URL</label>
           <input
             {...register("imageUrl")}
-            defaultValue={item.imageUrl}
+            defaultValue={myth.imageUrl}
             className="w-full px-4 py-2 border rounded focus:outline-none focus:border-blue-500"
           />
 
           <label className="block font-semibold text-black">Content</label>
           <textarea
             {...register("content")}
-            defaultValue={item.content}
+            defaultValue={myth.content}
             rows="4"
             className="w-full px-4 py-2 border rounded focus:outline-none focus:border-blue-500"
           />
@@ -71,8 +71,15 @@ const MythUpdateModal = ({ item, onClose, onSubmit }) => {
           <label className="block font-semibold text-black">Fact</label>
           <input
             {...register("fact")}
-            defaultValue={item.fact}
+            defaultValue={myth.fact}
             className="w-full px-4 py-2 border rounded focus:outline-none focus:border-blue-500"
+          />
+          <label className="block font-semibold text-black">Likes</label>
+          <input
+            {...register("likes")}
+            defaultValue={myth.likes}
+            className="w-full px-4 py-2 border rounded focus:outline-none focus:border-blue-500"
+            disabled
           />
 
           <label className="flex items-center font-semibold text-black">
@@ -81,7 +88,7 @@ const MythUpdateModal = ({ item, onClose, onSubmit }) => {
               name="featured"
               {...register("featured", { required: false })}
               className="mr-2 text-blue-500"
-              defaultChecked={item.featured}
+              defaultChecked={myth.featured}
             />
             Featured
           </label>

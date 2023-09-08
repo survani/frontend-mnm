@@ -1,4 +1,6 @@
-const addLikes = async (updatedMyth, id) => {
+import myth from '../types/types';
+
+const addLikes = async (updatedMyth: myth, id:number) => {
     try {
       const response = await fetch(`https://mnm-backend.onrender.com/myths/${id}`, {
         method: 'PUT', // Use the appropriate HTTP method (PUT)

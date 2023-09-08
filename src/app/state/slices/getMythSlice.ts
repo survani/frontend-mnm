@@ -3,22 +3,22 @@
 
 import addLikes from '../../helpers/addLikes';
 
-export const getMythSlice = (set) => ({
+export const getMythSlice = (set: (updater: (state: Partial<ISingleMythProps>) => Partial<ISingleMythProps>) => void) => ({
   myth: [],
   fetchSingleMyth: async (slug) => {
     const res = await fetch(`https://mnm-backend.onrender.com/myths/slug/${slug}`);
-    set({ myth: await res.json() });
+    const data = await res.json();
+    set((prevState) => ({ ...prevState, myth: data }));
   },
-  addLike: async (id) => {
-    set(async (state) => {
-      const updatedMyth = { ...state.myth };
+  addLike: async (id: number) => {
+    set((prevState) => {
+      const updatedMyth = { ...prevState.myth };
       updatedMyth.likes += 1;
 
-      await addLikes(updatedMyth, id);
+      addLikes(updatedMyth, id);
 
-      return {...state, myth: updatedMyth};
+      return { ...prevState, myth: updatedMyth };
     });
-  
   },
 });
 

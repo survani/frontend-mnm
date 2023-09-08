@@ -2,7 +2,7 @@ import FeaturedCard from "../featured/featured-card";
 
 const RightSidebar = () => {
   return (
-    <aside className="w-[400px] text-white bg-[#192231] border-l-2 border-gray-700 hidden lg:block">
+    <aside className="w-[400px] text-white bg-[#192231] border-l-2 border-gray-700 lg:block hidden h-[100vh]">
       <div className="p-4">
         <FeaturedCard />
         {/* <div className="p-6 mt-10 bg-[#131a27] rounded-lg text-white">

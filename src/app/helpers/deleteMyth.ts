@@ -1,4 +1,4 @@
-const deleteMyth = async (id) => {
+const deleteMyth = async (id: number) => {
     const res = await fetch(`https://mnm-backend.onrender.com/myths/${id}`, {
         method: "DELETE",
     });
@@ -10,7 +10,7 @@ const deleteMyth = async (id) => {
     }
 
     // Check for an empty response
-    const text = await res.text();
+    const text: string = await res.text();
     if (text.length === 0) {
         alert('Myth deleted successfully.');
         location.reload();
