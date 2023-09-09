@@ -15,16 +15,7 @@ import { useUser } from "@clerk/nextjs";
 import ListUI from "./ListUI";
 
 const List = () => {
-  const {
-    myths,
-    fetchMyths,
-    sortBy,
-    setSortBy,
-    showSortOptions,
-    toggleSortOptions,
-  } = useStore();
-
-  const { isLoaded, isSignedIn, user } = useUser();
+  const { myths, fetchMyths, setSortBy } = useStore();
 
   const handleSortChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setSortBy(event.target.value);
@@ -37,10 +28,6 @@ const List = () => {
   useEffect(() => {
     fetchMyths();
   }, [fetchMyths]);
-
-  if (!isLoaded) {
-    return null;
-  }
 
   return (
     <section className="container mx-auto">

@@ -15,4 +15,5 @@ interface ISingleMythProps {
     myth: any;
     fetchSingleMyth: () => Promise<void>;
     addLike: () => Promise<void>;
+    isLiked: boolean;
    };
