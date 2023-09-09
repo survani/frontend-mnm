@@ -15,8 +15,7 @@ import { useEffect, useState } from "react";
 import { TwitterShareButton, TwitterIcon } from "next-share";
 
 const Myth = ({ params }) => {
-  const { myth, fetchSingleMyth, addLike } = useStore();
-  const [isLiked, setIsLiked] = useState(false);
+  const { myth, fetchSingleMyth, addLike, isLiked } = useStore();
 
   useEffect(() => {
     fetchSingleMyth(params.slug);
@@ -25,7 +24,6 @@ const Myth = ({ params }) => {
   const handleLike = () => {
     if (!isLiked) {
       addLike(myth.id);
-      setIsLiked(true);
     }
   };
 
