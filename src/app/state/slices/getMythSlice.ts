@@ -5,7 +5,6 @@ import addLikes from '../../helpers/addLikes';
 
 export const getMythSlice = (set: (updater: (state: Partial<ISingleMythProps>) => Partial<ISingleMythProps>) => void) => ({
   myth: [],
-  isLiked: false,
   fetchSingleMyth: async (slug) => {
     const res = await fetch(`https://mnm-backend.onrender.com/myths/slug/${slug}`);
     const data = await res.json();
@@ -17,11 +16,9 @@ export const getMythSlice = (set: (updater: (state: Partial<ISingleMythProps>) =
       updatedMyth.likes += 1;
       addLikes(updatedMyth, id);
 
-     // Set isLiked in localStorage
-    localStorage.setItem('isLiked', 'true');
-
-      return { ...prevState, myth: updatedMyth, isLiked: true };
+      return { ...prevState, myth: updatedMyth};
     });
   },
 });
+
 
