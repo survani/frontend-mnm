@@ -20,7 +20,6 @@ const List: React.FC<ListProps> = ({
   // Function to update the indices when clicking "Load More"
   const handleLoadMore = () => {
     const newEndIndex = endIndex + 8;
-
     // Ensure that the newEndIndex doesn't exceed the length of myths array
     if (newEndIndex <= myths.length) {
       setEndIndex(newEndIndex);
