@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import FeaturedCardSkeleton from "../skeletons/featured-card-skeleton";
-import myth from "../../types/types";
+import { myth } from "../../types/types";
 
 const FeaturedCard = () => {
   const { myths, fetchMyths } = useStore();
