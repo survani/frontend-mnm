@@ -16,7 +16,7 @@ import { useState } from "react";
 import editMyth from "../../../helpers/editMyth";
 import MythUpdateModal from "../../modals/mythUpdateModal";
 import Image from "next/image";
-import myth from "../../../types/types";
+import { myth } from "../../../types/types";
 
 const ListUI = ({ myth }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
