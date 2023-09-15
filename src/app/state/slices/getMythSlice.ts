@@ -5,10 +5,18 @@ import addLikes from '../../helpers/addLikes';
 
 export const getMythSlice = (set: (updater: (state: Partial<ISingleMythProps>) => Partial<ISingleMythProps>) => void) => ({
   myth: [],
-  fetchSingleMyth: async (slug) => {
-    const res = await fetch(`https://mnm-backend.onrender.com/myths/slug/${slug}`);
-    const data = await res.json();
-    set((prevState) => ({ ...prevState, myth: data }));
+  fetchSingleMyth: async (slug:string) => {
+    try {
+      const res = await fetch(`https://mnm-backend.onrender.com/myths/slug/${slug}`);
+      console.log(res)
+      if (!res.ok) {
+        throw new Error(`HTTP error! Status: ${res.status}`);
+      }
+      const data = await res.json();
+      set((prevState) => ({ ...prevState, myth: data }));
+    } catch (error) {
+      console.error('An error occurred:', error);
+    }
   },
   addLike: async (id: number) => {
     set((prevState) => {

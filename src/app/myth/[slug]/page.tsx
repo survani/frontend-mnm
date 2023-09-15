@@ -11,7 +11,7 @@ Todos:
 import { HashtagIcon, SparklesIcon } from "@heroicons/react/20/solid";
 import { useStore } from "../../state/useStore";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { TwitterShareButton, TwitterIcon } from "next-share";
 
 const Myth = ({ params }) => {

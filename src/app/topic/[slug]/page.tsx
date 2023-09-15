@@ -10,7 +10,7 @@ import {
   AdjustmentsHorizontalIcon,
   XMarkIcon,
 } from "@heroicons/react/20/solid";
-import myth from "../../types/types";
+import { myth } from "../../types/types";
 
 const Topics = ({ params }) => {
   const {

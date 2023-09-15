@@ -19,7 +19,7 @@ export default function RootLayout({ children }) {
   return (
     <ClerkProvider>
       <html lang="en" className={lato.className}>
-        <body className="text-black">
+        <body className="text-black ">
           <Navbar />
           {children}
         </body>

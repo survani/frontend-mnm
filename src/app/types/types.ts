@@ -1,15 +1,23 @@
-type myth = {
-    id: number;
-    title: string;
-    slug: string;
-    description: string;
-    topic: string;
-    imageUrl: string;
-    likes: number;
-    shockedFactor: number;
-    publishedDate: string;
-    content: string;
-    featured: boolean;
+import List from "../components/cards/myth-list/List";
+
+export type myth = {
+  id: number;
+  title: string;
+  slug: string;
+  description: string;
+  topic: string;
+  imageUrl: string;
+  likes: number;
+  shockedFactor: number;
+  publishedDate: string;
+  content: string;
+  featured: boolean;
 };
 
-export default myth;
+export type ListProps = {
+  title: string;
+  subText: string;
+  startIndex: number;
+  endIndex: number;
+  isLoadMore: boolean;
+};
