@@ -16,6 +16,7 @@ import { TwitterShareButton, TwitterIcon } from "next-share";
 
 const Myth = ({ params }) => {
   const { myth, fetchSingleMyth, addLike, isLiked } = useStore();
+  console.log("🚀 ~ file: page.tsx:19 ~ Myth ~ myth:", myth);
 
   useEffect(() => {
     fetchSingleMyth(params.slug);
@@ -23,7 +24,7 @@ const Myth = ({ params }) => {
 
   const handleLike = () => {
     if (!isLiked) {
-      addLike(myth.id);
+      addLike(myth.slug);
     }
   };
 
@@ -71,7 +72,8 @@ const Myth = ({ params }) => {
           </div>
           <section className="flex gap-5 font-medium text-gray-500">
             <p>Likes: {myth.likes}</p>
-            <p>Shocked Factor: {myth.shockedFactor}</p>
+            {/* We will add it later */}
+            {/* <p>Shocked Factor: {myth.shockedFactor}</p> */}
             <p className="text-gray-500">{myth.publishedDate}</p>
           </section>
           <section className="flex lg:hidden">

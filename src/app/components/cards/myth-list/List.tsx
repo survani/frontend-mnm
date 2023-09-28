@@ -15,6 +15,7 @@ const List: React.FC<ListProps> = ({
   isLoadMore,
 }) => {
   const { myths, fetchMyths, setSortBy } = useStore();
+  console.log("🚀 ~ file: List.tsx:18 ~ myths:", myths);
   const [endIndex, setEndIndex] = useState(initialEndIndex);
 
   // Function to update the indices when clicking "Load More"
@@ -30,9 +31,6 @@ const List: React.FC<ListProps> = ({
     fetchMyths();
   }, [fetchMyths]);
 
-  //Only 8 Myths for the home page
-  const sortedData = myths.slice(startIndex, endIndex);
-
   return (
     <section className="container mx-auto">
       <section className="px-4 my-12 lg:px-0">
@@ -40,20 +38,11 @@ const List: React.FC<ListProps> = ({
         <p>{subText}</p>
       </section>
       <section className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 place-items-center lg:place-items-start">
-        {sortedData.length > 0 ? (
-          sortedData?.map((item: myth) => (
-            <React.Fragment key={item.id}>
-              <ListUI myth={item} />
-            </React.Fragment>
-          ))
-        ) : (
-          <div className="flex flex-col items-center justify-center">
-            <p className="">Loading Myths... May take up to 3 min. </p>
-            <ListSkeleton />
-            <ListSkeleton />
-            <ListSkeleton />
-          </div>
-        )}
+        {myths.content?.map((item: myth) => (
+          <React.Fragment key={item.id}>
+            <ListUI myth={item} />
+          </React.Fragment>
+        ))}
       </section>
       <div className="flex items-center justify-center">
         {isLoadMore && (
@@ -61,7 +50,7 @@ const List: React.FC<ListProps> = ({
             onClick={() => handleLoadMore()}
             className="w-1/4 p-2 bg-gray-100 border-2 border-dashed"
           >
-            Load More
+            See all
           </button>
         )}
       </div>
