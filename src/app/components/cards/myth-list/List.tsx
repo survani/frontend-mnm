@@ -24,24 +24,29 @@ const List: React.FC<ListProps> = ({
   };
 
   const getPageNumbers = () => {
-    const pageNumbers = [];
-    for (let i = 1; i <= totalPages; i++) {
-      pageNumbers.push(
-        <button
-          key={i}
-          onClick={() => handlePageClick(i)}
-          className={`mx-1 px-3 py-1 rounded-md ${
-            currentPage === i ? "bg-gray-200" : "bg-gray-100"
-          }`}
-        >
-          {i}
-        </button>
-      );
-    }
-    return pageNumbers;
-  };
+  const pageNumbers = [];
+  for (let i = 1; i <= totalPages; i++) {
+    const isCurrentPage = currentPage === i;
+    const isFirstPage = i === 1;
 
-  console.log(currentPage);
+    // Define a class to apply to the button based on conditions
+    const buttonClass = `mx-1 px-3 py-1 rounded-md ${
+      isCurrentPage ? "bg-gray-200" : "bg-gray-100"
+    } ${isFirstPage ? "firstPageNumber" : ""}`;
+
+    pageNumbers.push(
+      <button
+        key={i}
+        onClick={() => handlePageClick(i)}
+        className={buttonClass}
+      >
+        {i}
+      </button>
+    );
+  }
+  return pageNumbers;
+};
+
   return (
     <section className="container mx-auto">
       <section className="px-4 my-12 lg:px-0">
