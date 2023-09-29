@@ -10,27 +10,38 @@ import { ListProps, myth } from "../../../types/types";
 const List: React.FC<ListProps> = ({
   title,
   subText,
-  startIndex,
-  endIndex: initialEndIndex,
-  isLoadMore,
 }) => {
-  const { myths, fetchMyths, setSortBy } = useStore();
-  console.log("🚀 ~ file: List.tsx:18 ~ myths:", myths);
-  const [endIndex, setEndIndex] = useState(initialEndIndex);
+  const { myths, fetchMyths, setSortBy, currentPage, totalPages, setCurrentPage, setTotalPages } = useStore();
 
-  // Function to update the indices when clicking "Load More"
-  const handleLoadMore = () => {
-    const newEndIndex = endIndex + 8;
-    // Ensure that the newEndIndex doesn't exceed the length of myths array
-    if (newEndIndex <= myths.length) {
-      setEndIndex(newEndIndex);
-    }
-  };
+  const correctedPageIndex = 1;
 
   useEffect(() => {
-    fetchMyths();
-  }, [fetchMyths]);
+    fetchMyths(currentPage - correctedPageIndex);
+  }, [fetchMyths, currentPage]);
 
+  const handlePageClick = (pageNumber: number) => {
+    setCurrentPage(pageNumber);
+  };
+
+  const getPageNumbers = () => {
+    const pageNumbers = [];
+    for (let i = 1; i <= totalPages; i++) {
+      pageNumbers.push(
+        <button
+          key={i}
+          onClick={() => handlePageClick(i)}
+          className={`mx-1 px-3 py-1 rounded-md ${
+            currentPage === i ? "bg-gray-200" : "bg-gray-100"
+          }`}
+        >
+          {i}
+        </button>
+      );
+    }
+    return pageNumbers;
+  };
+
+  console.log(currentPage);
   return (
     <section className="container mx-auto">
       <section className="px-4 my-12 lg:px-0">
@@ -44,15 +55,8 @@ const List: React.FC<ListProps> = ({
           </React.Fragment>
         ))}
       </section>
-      <div className="flex items-center justify-center">
-        {isLoadMore && (
-          <button
-            onClick={() => handleLoadMore()}
-            className="w-1/4 p-2 bg-gray-100 border-2 border-dashed"
-          >
-            See all
-          </button>
-        )}
+      <div className="flex items-center justify-center mt-4">
+        {getPageNumbers()}
       </div>
     </section>
   );

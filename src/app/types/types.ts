@@ -17,7 +17,4 @@ export type myth = {
 export type ListProps = {
   title: string;
   subText: string;
-  startIndex: number;
-  endIndex: number;
-  isLoadMore: boolean;
 };
