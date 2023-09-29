@@ -8,9 +8,6 @@ const Home = () => {
       <List
         title="Myth Debunkers Unleashed: Separating Fact from Fiction"
         subText="Platform to discover all the myths from around the world"
-        startIndex={0}
-        endIndex={8}
-        isLoadMore={false}
       />
     </>
   );
