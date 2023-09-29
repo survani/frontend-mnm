@@ -28,9 +28,10 @@ const Topics = ({ params }) => {
 
   const topic = params.slug;
 
-  const isTopic = myths.filter(
-    (myth: myth) => myth.topic.toUpperCase() === topic.toUpperCase()
-  );
+  const isTopic =
+    myths?.content?.filter(
+      (myth: myth) => myth.topic.toUpperCase() === topic.toUpperCase()
+    ) ?? [];
 
   const handleSortChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setSortBy(event.target.value);

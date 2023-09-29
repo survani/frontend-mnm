@@ -6,12 +6,12 @@ import Image from "next/image";
 import Link from "next/link";
 
 const SingleFeaturedCard = () => {
-  const { myth, fetchSingleMythById } = useStore();
-  const ID = 25;
+  const { myth, fetchSingleMyth } = useStore();
+  const SLUG = "detox-diets-cleanse-your-body";
 
   useEffect(() => {
-    fetchSingleMythById(ID);
-  }, [fetchSingleMythById, ID]);
+    fetchSingleMyth(SLUG);
+  }, [fetchSingleMyth]);
 
   return (
     <section className="bg-gray-200 h-[400px] flex justify-center items-center">

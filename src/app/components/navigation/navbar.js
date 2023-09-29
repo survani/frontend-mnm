@@ -31,7 +31,7 @@ const Navbar = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
 
-  const uniqueArray = myths.filter(
+  const uniqueArray = myths.content?.filter(
     (element, index, self) =>
       self.findIndex((e) => e.topic === element.topic) === index
   );
